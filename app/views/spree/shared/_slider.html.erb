@@ -1,4 +1,4 @@
-<% if slider.size > 0 && @body_id.present? && @body_id == 'home-page' %>
+<% if slider.size > 0 && (@body_id.present? && @body_id == 'home-page' || internal ) %>
 <script src="https://player.vimeo.com/api/player.js"></script>
   <%# generate a random number for the carousel id - in case you want multiple per page %>
   <% cid ||= Random.rand(1000) %>
