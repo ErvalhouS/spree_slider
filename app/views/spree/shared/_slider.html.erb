@@ -5,11 +5,13 @@
 
   <div id="carousel-slider-<%= cid %>" class="carousel slide" data-ride="carousel" <%= (defined? interval) != nil ? "data-interval=#{interval.to_s}" : "" %>>
     <%# Indicators %>
-    <ol class="carousel-indicators">
-      <% slider.each_with_index do |slide, index| %>
-        <li data-target="#carousel-prod-<%= cid %>" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
-      <% end %>
-    </ol>
+    <% if slider.present? && slider.size > 1 %>
+      <ol class="carousel-indicators">
+        <% slider.each_with_index do |slide, index| %>
+          <li data-target="#carousel-prod-<%= cid %>" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+        <% end %>
+      </ol>
+    <% end %>
 
     <%# Wrapper for slider %>
     <div class="carousel-inner">
